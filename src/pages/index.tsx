@@ -32,13 +32,13 @@ export default function Home() {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col justify-center gap-8 border-2 rounded-lg p-4"
+          className="flex flex-col justify-center border-2 rounded-lg p-4"
         >
+          <label>Día</label>
           <input
             type="date"
             min={new Date().toISOString().split("T")[0]}
             className="
-              mt-1
               block
               rounded-md
               bg-gray-100
@@ -46,14 +46,16 @@ export default function Home() {
               focus:border-gray-500 focus:bg-white focus:ring-0
               p-2
               dark:text-black
+              mt-1 mb-4
             "
             {...register("date", { required: true })}
           />
 
+          <label>Hora</label>
           <select
             className="dark:text-black p-2 rounded-md
               bg-gray-100
-              border-transparent"
+              border-transparent mt-1 mb-4"
             {...register("hour", { required: true })}
           >
             <option value="" selected disabled hidden>
