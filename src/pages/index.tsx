@@ -1,12 +1,14 @@
 import Header from "components/Header";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useRef } from "react";
 
 import { useForm } from "react-hook-form";
 import { getMinDate } from "utils/common";
 
 export default function Home() {
   const router = useRouter();
+  const dateRef = useRef<HTMLInputElement | null>(null);
 
   const {
     register,
@@ -19,6 +21,8 @@ export default function Home() {
       query: data,
     });
   };
+
+  const { ref, ...rest } = register("date");
 
   return (
     <>
@@ -33,15 +37,18 @@ export default function Home() {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col justify-center border-2 rounded-lg p-4"
+          className="flex flex-col max-w-xs justify-center border-2 rounded-lg p-4"
         >
           <label htmlFor="date">Día</label>
           <input
             type="date"
             id="date"
             min={getMinDate()}
-            className="
-              flex
+            onClick={() => {
+              dateRef?.current?.showPicker();
+            }}
+            {...rest}
+            className="appearance-none flex
               w-full
               h-10
               rounded-md
@@ -50,20 +57,23 @@ export default function Home() {
               focus:border-gray-500 focus:bg-white focus:ring-0
               p-2
               dark:text-black
-              mt-1 mb-4
-            "
-            {...register("date", { required: true })}
+              mt-1 mb-4"
+            ref={(e) => {
+              ref(e);
+              dateRef.current = e;
+            }}
           />
 
           <label htmlFor="hour">Hora</label>
           <select
             id="hour"
-            className="dark:text-black p-2 rounded-md
+            defaultValue={""}
+            className="h-10 dark:text-black p-2 rounded-md
               bg-gray-100
               border-transparent mt-1 mb-4"
             {...register("hour", { required: true })}
           >
-            <option value="" selected disabled hidden>
+            <option value="" disabled hidden>
               Seleccione una hora
             </option>
             <option value="14">14:00</option>
