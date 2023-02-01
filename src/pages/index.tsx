@@ -34,9 +34,10 @@ export default function Home() {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col justify-center border-2 rounded-lg p-4"
         >
-          <label>Día</label>
+          <label htmlFor="date">Día</label>
           <input
             type="date"
+            id="date"
             min={new Date().toISOString().split("T")[0]}
             className="
               block
@@ -51,8 +52,9 @@ export default function Home() {
             {...register("date", { required: true })}
           />
 
-          <label>Hora</label>
+          <label htmlFor="hour">Hora</label>
           <select
+            id="hour"
             className="dark:text-black p-2 rounded-md
               bg-gray-100
               border-transparent mt-1 mb-4"
