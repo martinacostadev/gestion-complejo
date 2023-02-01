@@ -1,3 +1,13 @@
+export function getMinDate() {
+  return new Date(
+    new Date().toLocaleString("en", {
+      timeZone: "America/Argentina/Buenos_Aires",
+    })
+  )
+    .toISOString()
+    .split("T")[0];
+}
+
 export function capitalizeFirstLetter(text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }

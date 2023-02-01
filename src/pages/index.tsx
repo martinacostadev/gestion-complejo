@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { useForm } from "react-hook-form";
+import { getMinDate } from "utils/common";
 
 export default function Home() {
   const router = useRouter();
@@ -38,9 +39,11 @@ export default function Home() {
           <input
             type="date"
             id="date"
-            min={new Date().toISOString().split("T")[0]}
+            min={getMinDate()}
             className="
-              block
+              flex
+              w-full
+              h-10
               rounded-md
               bg-gray-100
               border-transparent
