@@ -9,10 +9,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Gestión de Canchas</title>
-        <meta name="description" content="Gestión de Canchas" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Gestión Complejo</title>
+        <meta name="description" content="Gestión Complejo" />
       </Head>
       <main>
         <Header title="Canchas" />

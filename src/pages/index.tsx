@@ -27,18 +27,13 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Gestión de Canchas</title>
-        <meta name="description" content="Gestión de Canchas" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Gestión Complejo</title>
+        <meta name="description" content="Gestión Complejo" />
       </Head>
-      <main>
+      <section className="max-w-sm">
         <Header title="Reservar cancha" />
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col max-w-xs justify-center border-2 rounded-lg p-4"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
           <label htmlFor="date">Día</label>
           <input
             type="date"
@@ -57,7 +52,7 @@ export default function Home() {
               focus:border-gray-500 focus:bg-white focus:ring-0
               p-2
               dark:text-black
-              mt-1 mb-4"
+              mt-1 mb-6"
             ref={(e) => {
               ref(e);
               dateRef.current = e;
@@ -70,7 +65,7 @@ export default function Home() {
             defaultValue={""}
             className="h-10 dark:text-black p-2 rounded-md
               bg-gray-100
-              border-transparent mt-1 mb-4"
+              border-transparent mt-1 mb-6"
             {...register("hour", { required: true })}
           >
             <option value="" disabled hidden>
@@ -88,11 +83,11 @@ export default function Home() {
 
           {errors.hour && <span>Complete todos los campos</span>}
 
-          <button type="submit" className="border-2 rounded-xl py-2">
+          <button type="submit" className="border-2 rounded-xl py-2 mt-4">
             Ver disponibilidad
           </button>
         </form>
-      </main>
+      </section>
     </>
   );
 }

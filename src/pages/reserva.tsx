@@ -40,7 +40,7 @@ export default function Reserva() {
     <>
       <Header title="Reserva" />
 
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 w-full">
         <div>Canchas disponibles el día</div>
         <div className="text-xl">{formattedDate}</div>
         <div className="text-xl">{hour}:00 hs</div>
